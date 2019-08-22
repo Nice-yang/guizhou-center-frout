@@ -4,10 +4,26 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <<router-view></router-view>
+      <ul>
+        <li v-for='item in list' :key='item' @click='changePage(item)'> {{item}}</li>
+      </ul>
+    <router-view></router-view>
   </div>
 </template>
-
+<script>
+  export default{
+    data(){
+      return {
+        list:['first','second','third']
+      }
+    },
+    methods:{
+      changePage(item){
+          this.$router.push(`/${item}`)
+      }
+    }
+  }
+</script>
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

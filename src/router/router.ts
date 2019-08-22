@@ -46,6 +46,21 @@ export default new Router({
             // 登录
             path: '/login',
             component: resolve => require(['../views/Home.vue'], resolve)
+        },
+        {
+            // 登录
+            path: '/first',
+            component: resolve => require(['../views/first.vue'], resolve)
+        },
+        {
+            // 登录
+            path: '/second',
+            component: resolve => require(['../views/second.vue'], resolve)
+        },
+        {
+            // 登录
+            path: '/third',
+            component: resolve => require(['../views/thrid.vue'], resolve)
         }
 
     ]

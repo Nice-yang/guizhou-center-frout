@@ -1,9 +1,19 @@
 import Vue from "vue";
 import App from "./App.vue";
+import ElementUI from 'element-ui';
 import router from "./router/router";
+import * as globalFilter from './filters/filters'
+// import axios from './config/httpConfig';
+import 'element-ui/lib/theme-chalk/index.css';
+// import './styles/index.scss';
 // import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
+
+for (var key in globalFilter) {
+  Vue.filter(key, globalFilter[key])
+}
+Vue.use(ElementUI);
 router.beforeEach((to: any, from: any, next: any) => {
   if (to.name === 'login') {
     next({name: 'home/index'})
