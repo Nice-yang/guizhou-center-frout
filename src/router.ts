@@ -16,26 +16,26 @@ export default new Router({
         },
         {
             path: '/main',
-            component: resolve => require(['../views/Home.vue'], resolve),
+            component: resolve => require(['./views/Home.vue'], resolve),
             children: [
 
                 {
                     //  大屏
                     path: '/commandcenter',
-                    component: resolve => require(['../views/Home.vue'], resolve),
+                    component: resolve => require(['./views/Home.vue'], resolve),
                     redirect: '/commandcenter/mainScreen',
                     children: [
                         {
                             path: '/commandcenter/mainScreen',
-                            component: resolve => require(['../views/Home.vue'], resolve),
+                            component: resolve => require(['./views/Home.vue'], resolve),
                             children:[{
                                 path: '/commandcenter/mainScreen/monitor/:type/:id',
-                                component: resolve => require(['../views/Home.vue'], resolve),
+                                component: resolve => require(['./views/Home.vue'], resolve),
                             }]
                         },
                         {
                             path: '/commandcenter/monitor',
-                            component: resolve => require(['../views/Home.vue'], resolve)
+                            component: resolve => require(['./views/Home.vue'], resolve)
                         },
                     ]
                 },
@@ -45,7 +45,7 @@ export default new Router({
         {
             // 登录
             path: '/login',
-            component: resolve => require(['../views/Home.vue'], resolve)
+            component: resolve => require(['./views/Home.vue'], resolve)
         }
 
     ]
