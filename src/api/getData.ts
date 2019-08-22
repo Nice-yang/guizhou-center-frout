@@ -1,7 +1,7 @@
 /**
  * api接口
  */
-//import axios from "axios";
+import axios from "axios";
 
 // let baseUrl = "http://192.168.3.103:8090/lubanocc/web";
 
