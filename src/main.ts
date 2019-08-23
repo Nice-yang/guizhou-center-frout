@@ -2,7 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import ElementUI from 'element-ui';
 import router from "./router/router";
-import * as globalFilter from './filters/filters'
+// import globalFilter from './filters/filters';
+import store from './store';
 // import axios from './config/httpConfig';
 import 'element-ui/lib/theme-chalk/index.css';
 // import './styles/index.scss';
@@ -10,9 +11,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 
-for (var key in globalFilter) {
-  Vue.filter(key, globalFilter[key])
-}
+// for (var key in globalFilter) {
+//   debugger;
+//   Vue.filter(key, globalFilter[key])
+// }
 Vue.use(ElementUI);
 router.beforeEach((to: any, from: any, next: any) => {
   if (to.name === 'login') {
@@ -55,5 +57,6 @@ router.beforeEach((to: any, from: any, next: any) => {
 // });
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");

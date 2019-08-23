@@ -7,6 +7,7 @@
       <ul>
         <li v-for='item in list' :key='item' @click='changePage(item)'> {{item}}</li>
       </ul>
+    <P>{{$store.state.version}}</P>
     <router-view></router-view>
   </div>
 </template>
@@ -19,6 +20,7 @@
     },
     methods:{
       changePage(item){
+          // this.$store.commit('User_Name',item);
           this.$router.push(`/${item}`)
       }
     }
