@@ -20,7 +20,22 @@ module.exports = {
             target: "<other_url>"
           }
         }, // 配置多个代理
-       
+
       },
-      lintOnSave: false // 关闭eslint代码检查
+      lintOnSave: false, // 关闭eslint代码检查
+        configureWebpack: {
+            resolve: { extensions: [".ts", ".tsx", ".js", ".json"] },
+            module: {
+                rules: [
+                    {
+                        test: /\.tsx?$/,
+                        loader: 'ts-loader',
+                        exclude: /node_modules/,
+                        options: {
+                            appendTsSuffixTo: [/\.vue$/],
+                        }
+                    }
+                ]
+            }
+        }
 }

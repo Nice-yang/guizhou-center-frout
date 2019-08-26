@@ -1,8 +1,10 @@
+
+
 import axios from 'axios'
 import store from '../store/index.js'
 import router from '../router/router';
 import { Message } from 'element-ui'
-
+import $ from 'jquery';
 
 axios.defaults.withCredentials = true;
 // 添加请求拦截器
@@ -24,17 +26,18 @@ getToken();
  * Add a request interceptor
  */
 let timer;
-let axiosPromiseArr=[]; //储存cancel token
+let adiosPromiseArr=[]; //储存cancel token
 axios.interceptors.request.use(function (config) {
+    // @ts-ignore
     if(config.url.indexOf('open/login/validate')!=-1 ||config.url.indexOf('open/login/listTeam')!=-1){
         config.headers.common['auth-token'] =localStorage.getItem("token");
         config.headers.common['auth-biz-id'] =localStorage.getItem('authBiz.id');
         config.headers.common['auth-biz-type'] =1;
     }
-    debugger;
     getToken();
     config.cancelToken = new axios.CancelToken(cancel => {
-        axiosPromiseArr.push({cancel})
+        // @ts-ignore
+        adiosPromiseArr.push({cancel})
     });
     /*if(config.url.indexOf("/hearbeat") == -1){
         clearInterval(timer);
@@ -115,10 +118,12 @@ axios.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 router.beforeEach((to, from, next) => {
-    axiosPromiseArr.forEach((ele, index) => {
+    adiosPromiseArr.forEach((ele, index) => {
+        // @ts-ignore
         ele.cancel();
-        delete axiosPromiseArr[index]
+        delete adiosPromiseArr[index]
     });
     next();
 });
 
+export default {}

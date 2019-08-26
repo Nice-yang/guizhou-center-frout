@@ -2,9 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import ElementUI from 'element-ui';
 import router from "./router/router";
-import globalFilter from './filters/filters';
+import globalFilter from './filters/index';
 import axios from './config/httpConfig';
-import store from './store';
+import store from './store/index';
 // import axios from './config/httpConfig';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(require('vue-cookies'));
@@ -15,10 +15,11 @@ Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
 for (var key in globalFilter) {
+  // @ts-ignore
   Vue.filter(key, globalFilter[key])
 }
 Vue.use(ElementUI);
-router.beforeEach((to: any, from: any, next: any) => {
+router.beforeEach((to, from, next) => {
   if (to.name === 'login') {
     next({name: 'home/index'})
   } else {

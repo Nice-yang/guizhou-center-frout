@@ -1,3 +1,3 @@
 
-export const user1 = (state) => state.chat.user;
-export const food = (state) => state.shop.food;
+export const user1 = (state: { chat: { user: any; }; }) => state.chat.user;
+export const food = (state: { shop: { food: any; }; }) => state.shop.food;

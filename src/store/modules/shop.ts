@@ -3,7 +3,7 @@ import types from '../mutations-types';
 import { Module, ActionTree, MutationTree, GetterTree  } from 'vuex';
 import { GlobalFood } from './types/types';
 import { RootState } from '../types';
-import { login } from '../../api/login';
+// import { login } from '../../api/login';
 
 export const state: GlobalFood = {
   food: '可乐',

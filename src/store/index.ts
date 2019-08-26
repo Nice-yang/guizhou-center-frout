@@ -6,7 +6,8 @@ import * as mutations from './mutations';
 import * as actions from './actions';
 // import modules from './modules';
 Vue.use(Vuex);
-const store: StoreOptions<RootState> = {
+// @ts-ignore
+const store: StoreOptions = {
   state: {
     version: '2.0.0',
   },
@@ -16,5 +17,5 @@ const store: StoreOptions<RootState> = {
   // modules,
 };
 
-export default new Vuex.Store<RootState>(store);
+export default new Vuex.Store(store);
 
