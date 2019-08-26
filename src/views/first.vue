@@ -15,7 +15,7 @@
         },
         computed:{
             // let ss = 1234;
-            
+
             ...mapState({ version: state => 1234,}),
             ...mapMutations({
                 'User_Name': 'User_Name'

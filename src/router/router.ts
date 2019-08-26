@@ -44,8 +44,8 @@ export default new Router({
         },
         {
             // 登录
-            path: '/login',
-            component: resolve => require(['../views/Home.vue'], resolve)
+            path: '/Login',
+            component: resolve => require(['../views/Login/Login.vue'], resolve)
         },
         {
             // 登录

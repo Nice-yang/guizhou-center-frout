@@ -1,13 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-      <ul>
-        <li v-for='item in list' :key='item' @click='changePage(item)'> {{item}}</li>
-      </ul>
-    <P>{{$store.state.version}}</P>
     <router-view></router-view>
   </div>
 </template>
@@ -15,7 +7,7 @@
   export default{
     data(){
       return {
-        list:['first','second','third']
+
       }
     },
     methods:{
